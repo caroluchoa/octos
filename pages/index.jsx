@@ -7,7 +7,8 @@ const feed = props => {
   return (
     <Layout>
       <div className="page">
-        <h1>Listagem</h1>
+        <h2>Listagem</h2>
+        <p>Clique em uma câmera abaixo para editá-la.</p>
         <main>
           {props.feed.map(cameras => (
             <div key={cameras.id} className="cameras">

@@ -29,7 +29,7 @@ const Draft = () => {
       <div className="page">
         <form
           onSubmit={submitData}>
-          <h1>Adicionar Câmera</h1>
+          <h2>Adicionar Câmera</h2>
           <label>
             <input
               autoFocus
@@ -103,7 +103,7 @@ const Draft = () => {
         }
 
         input[type='submit'] {         
-           
+          margin-top: 1rem; 
           font-size:11.3pt;      
           background: #ececec;
           border: 0;
@@ -118,7 +118,8 @@ const Draft = () => {
           box-shadow: 1px 1px 3px #aaa;
         }
 
-        .back {          
+        .back {
+          margin-top: 1rem;          
           font-size:11.3pt;
           color:black;        
           background: #ececec;
