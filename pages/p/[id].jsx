@@ -34,6 +34,10 @@ const Cameras = props => {
           margin-top: 2rem;
         }
 
+        button:hover {          
+          box-shadow: 1px 1px 3px #aaa;
+        }
+
         button {
           background: #ececec;
           border: 0;

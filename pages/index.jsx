@@ -3,15 +3,6 @@ import Layout from '../components/Layout'
 import Cameras from '../components/Post'
 
 
-
-async function destroy(id) {
-  const res = await fetch(`http://localhost:3000/api/post/${id}`, {
-    method: 'DELETE',
-  })
-  const data = await res.json()
-  Router.push('/')
-}
-
 const feed = props => {
   return (
     <Layout>
@@ -36,7 +27,8 @@ const feed = props => {
         }
 
         .cameras + .cameras {
-          margin-top: 2rem;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
         }
       `}</style>
     </Layout>
@@ -47,7 +39,7 @@ export const getServerSideProps = async () => {
   const res = await fetch('http://localhost:3000/api/feed')
   const feed = await res.json()
   return {
-    props : { feed },
+    props: { feed },
   }
 }
 

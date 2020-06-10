@@ -36,23 +36,24 @@ const Draft = () => {
               onChange={e => setCameraname(e.target.value)}
               placeholder="Nome da Câmera"
               type="text"
-              maxlength="50"
+              required
+              maxLength="50"
               value={cameraname}
             />
           </label>
           <label>
             <input placeholder="Número de Série"
               type="text"
-              maxlength="16"
+              maxLength="16"
               required pattern="[A-Z0-9]+"
               value={serialnumber}
-              onChange={e => 
+              onChange={e =>
                 setSerialnumber(e.target.value)}
             />
           </label>
           <label>
-            <select class="select-css" manufacturer="Fabricante" value={manufacturer} onChange={e => setManufacturer(e.target.value)}>
-              <option>Fabricante</option>
+            <select className="select-css" manufacturer="Fabricante" value={manufacturer} onChange={e => setManufacturer(e.target.value)} required >
+              <option value ="">Fabricante</option>
               <option value="Secure Câmeras Inc">Secure Câmeras Inc</option>
               <option value="Surveillance Cams LLC">Surveillance Cams LLC</option>
               <option value="DigiEye Group">DigiEye Group</option>
@@ -61,25 +62,26 @@ const Draft = () => {
             </select>
           </label>
           <input
-            disabled={!serialnumber || !cameraname || !manufacturer}
             type="submit"
             value="Adicionar"
           />
-          <a className="back" href="#" onClick={() => Router.push('/')}>
+          <button className="back" href="#" onClick={() => Router.push('/')}>
             Cancelar
-          </a>
+          </button>
         </form>
       </div>
       <style jsx>{`
         .page {
           background: white;
-          padding: 3rem;
+          padding: 2rem;
           display: flex;
           justify-content: center;
           align-items: center;
-        }
+        }        
 
-        .select-css{
+        .select-css{ 
+          font-size:12pt;
+          color:grey;     
           width: 100%;
           padding: 0.5rem;
           margin: 0.5rem 0;
@@ -87,6 +89,10 @@ const Draft = () => {
           border: 0.125rem solid rgba(0, 0, 0, 0.2);
         }
 
+        .select-css:hover{ 
+          color:black;     
+        }
+        
         input[type='text'],
         textarea {
           width: 100%;
@@ -96,14 +102,29 @@ const Draft = () => {
           border: 0.125rem solid rgba(0, 0, 0, 0.2);
         }
 
-        input[type='submit'] {
+        input[type='submit'] {         
+           
+          font-size:11.3pt;      
           background: #ececec;
           border: 0;
           padding: 1rem 2rem;
         }
 
-        .back {
-          margin-left: 1rem;;
+        input[type='submit']:hover {         
+          box-shadow: 1px 1px 3px #aaa;  
+        }
+
+        .back:hover {          
+          box-shadow: 1px 1px 3px #aaa;
+        }
+
+        .back {          
+          font-size:11.3pt;
+          color:black;        
+          background: #ececec;
+          border:0 ;
+          padding: 1rem 2rem;
+          margin-left: 1rem;
         }
       `}</style>
     </Layout>
