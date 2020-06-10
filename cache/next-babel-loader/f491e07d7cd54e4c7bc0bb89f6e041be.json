@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { PrismaClient } from '@prisma/client';\nconst prisma = new PrismaClient();\nexport default async function handle(req, res) {\n  const cameras = await prisma.cameras.findMany();\n  res.json(cameras);\n}","map":null,"metadata":{},"sourceType":"module"}
