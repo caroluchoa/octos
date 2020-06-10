@@ -1,7 +1,6 @@
 {
   "name": "hello-next",
   "version": "1.0.0",
-  "homepage": "https://caroluchoa.github.io/octos/",
   "description": "",
   "main": "index.js",
   "scripts": {
