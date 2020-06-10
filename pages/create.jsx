@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import Router from 'next/router'
 
-const Draft = () => {
+const Create = () => {
   const [cameraname, setCameraname] = useState('')
   const [serialnumber, setSerialnumber] = useState('')
   const [manufacturer, setManufacturer] = useState('')
@@ -132,4 +132,6 @@ const Draft = () => {
   )
 }
 
-export default Draft;
+export const getServerSideProps = async () => ({ props: {} })
+
+export default Create;
