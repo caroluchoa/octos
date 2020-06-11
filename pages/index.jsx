@@ -10,9 +10,9 @@ const feed = props => {
         <h2>Listagem</h2>
         <p>Clique em uma câmera abaixo para editá-la.</p>
         <main>
-          {props.feed.map(cameras => (
+          {props.feed.map(cameras => ( // mostra todas as cameras do db usando Cameras do componente Post
             <div key={cameras.id} className="cameras">
-              <Cameras cameras={cameras} />
+              <Cameras cameras={cameras} /> 
             </div>
           ))}
         </main>
@@ -36,11 +36,13 @@ const feed = props => {
   )
 }
 
+//getServerSideProps para buscar os dados no lado do servidor
+
 export const getServerSideProps = async () => {
   const res = await fetch('http://localhost:3000/api/feed')
   const feed = await res.json()
   return {
-    props: { feed },
+    props: { feed }, //retorna um objeto props que inclui a lista de cameras que foi pega em api/feed
   }
 }
 

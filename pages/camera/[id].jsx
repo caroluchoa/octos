@@ -3,7 +3,7 @@ import Layout from '../../components/Layout'
 import fetch from 'isomorphic-unfetch'
 import Router from 'next/router'
 
-
+// funçao que faz uma requisição de DELETE em api/post/id e retorna a pagina Home
 async function destroy(id) {
   const res = await fetch(`http://localhost:3000/api/post/${id}`, {
     method: 'DELETE',
@@ -12,8 +12,8 @@ async function destroy(id) {
   Router.push('/')
 }
 
+// mostra a camera escolhida e a possibilidade chamar a função destroy
 const Cameras = props => {
-  let cameraname = props.cameraname
   return (
     <Layout>
       <div className="page">

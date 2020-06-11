@@ -8,7 +8,7 @@ const Create = () => {
   const [serialnumber, setSerialnumber] = useState('')
   const [manufacturer, setManufacturer] = useState('')
 
-  const submitData = async e => {
+  const submitData = async e => { //a função envia uma requisição POST para o endpoint /api/index
     e.preventDefault()
     try {
       const body = { cameraname, serialnumber, manufacturer }
@@ -31,7 +31,7 @@ const Create = () => {
           onSubmit={submitData}>
           <h2>Adicionar Câmera</h2>
           <label>
-            <input
+            <input //recebendo o nome da camera
               autoFocus
               onChange={e => setCameraname(e.target.value)}
               placeholder="Nome da Câmera"
@@ -42,7 +42,7 @@ const Create = () => {
             />
           </label>
           <label>
-            <input placeholder="Número de Série"
+            <input placeholder="Número de Série" //recebendo o numero de serie
               type="text"
               maxLength="16"
               required pattern="[A-Z0-9]+"
@@ -51,7 +51,7 @@ const Create = () => {
                 setSerialnumber(e.target.value)}
             />
           </label>
-          <label>
+          <label> 
             <select className="select-css" manufacturer="Fabricante" value={manufacturer} onChange={e => setManufacturer(e.target.value)} required >
               <option value ="">Fabricante</option>
               <option value="Secure Câmeras Inc">Secure Câmeras Inc</option>
@@ -59,7 +59,7 @@ const Create = () => {
               <option value="DigiEye Group">DigiEye Group</option>
               <option value="CâmeraFi Inc">CâmeraFi Inc</option>
               <option value="VidMasters Inc">VidMasters Inc</option>
-            </select>
+            </select> 
           </label>
           <input
             type="submit"
