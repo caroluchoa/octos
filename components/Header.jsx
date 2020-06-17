@@ -6,7 +6,7 @@ const Header = () => {
 
   const isActive = (pathname) => router.pathname === pathname
 
-  return(
+  return (
     <nav>
       <div className="left">
         <Link href="/">

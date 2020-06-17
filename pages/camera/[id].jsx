@@ -1,9 +1,8 @@
-import ReactMarkdown from 'react-markdown'
 import Layout from '../../components/Layout'
 import fetch from 'isomorphic-unfetch'
 import Router from 'next/router'
 
-// funçao que faz uma requisição de DELETE em api/post/id e retorna a pagina Home
+// Funçao que faz uma requisição de DELETE em api/post/id e retorna a pagina Home
 async function destroy(id) {
   const res = await fetch(`http://localhost:3000/api/post/${id}`, {
     method: 'DELETE',
@@ -12,7 +11,8 @@ async function destroy(id) {
   Router.push('/')
 }
 
-// mostra a camera escolhida e a possibilidade chamar a função destroy
+
+// Mostra a camera escolhida e dá a possibilidade de chamar a função destroy
 const Cameras = props => {
   return (
     <Layout>
@@ -24,11 +24,14 @@ const Cameras = props => {
           <button onClick={() => destroy(props.id)}>Deletar</button>
         </div>
       </div>
+
       <style jsx>{`
         .page {
           background: white;
           padding: 1.5rem;
+          margin-bottom: 1rem;
         }
+
 
         .actions {
           margin-top: 2rem;
@@ -50,13 +53,16 @@ const Cameras = props => {
         }
       `}</style>
     </Layout>
+
   )
 }
 
+
+// Busca no lado do servidor o parâmetro ID
 export const getServerSideProps = async (context) => {
   const res = await fetch(`http://localhost:3000/api/post/${context.params.id}`)
   const data = await res.json()
-  return {props: {...data}}
+  return { props: { ...data } }
 }
 
 export default Cameras

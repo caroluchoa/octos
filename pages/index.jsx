@@ -10,9 +10,9 @@ const feed = props => {
         <h2>Listagem</h2>
         <p>Clique em uma câmera abaixo para editá-la.</p>
         <main>
-          {props.feed.map(cameras => ( // mostra todas as cameras do db usando Cameras do componente Post
+          {props.feed.map(cameras => ( // mapeia todas as cameras do db que estão no objeto props
             <div key={cameras.id} className="cameras">
-              <Cameras cameras={cameras} /> 
+              <Cameras cameras={cameras} /> {/*Utiliza o import da constante Cameras para expor as câmeras na página, da maneira correta */}
             </div>
           ))}
         </main>

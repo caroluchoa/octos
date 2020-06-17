@@ -8,7 +8,7 @@ const Create = () => {
   const [serialnumber, setSerialnumber] = useState('')
   const [manufacturer, setManufacturer] = useState('')
 
-  const submitData = async e => { //a função envia uma requisição POST para o endpoint /api/index
+  const submitData = async e => { //Envia uma requisição POST para o endpoint /api/post/index
     e.preventDefault()
     try {
       const body = { cameraname, serialnumber, manufacturer }
@@ -34,7 +34,7 @@ const Create = () => {
             <input //recebendo o nome da camera
               autoFocus
               onChange={e => setCameraname(e.target.value)}
-              placeholder="Nome da Câmera"
+              placeholder="Nome da Câmera - Ex: 'Hall de Entrada'"
               type="text"
               required
               maxLength="50"
@@ -42,7 +42,7 @@ const Create = () => {
             />
           </label>
           <label>
-            <input placeholder="Número de Série" //recebendo o numero de serie
+            <input placeholder="Número de Série - Apenas caracteres alfanuméricos" //recebendo o numero de serie
               type="text"
               maxLength="16"
               required pattern="[A-Z0-9]+"
@@ -51,15 +51,15 @@ const Create = () => {
                 setSerialnumber(e.target.value)}
             />
           </label>
-          <label> 
+          <label>
             <select className="select-css" manufacturer="Fabricante" value={manufacturer} onChange={e => setManufacturer(e.target.value)} required >
-              <option value ="">Fabricante</option>
+              <option value="">Fabricante</option>
               <option value="Secure Câmeras Inc">Secure Câmeras Inc</option>
               <option value="Surveillance Cams LLC">Surveillance Cams LLC</option>
               <option value="DigiEye Group">DigiEye Group</option>
               <option value="CâmeraFi Inc">CâmeraFi Inc</option>
               <option value="VidMasters Inc">VidMasters Inc</option>
-            </select> 
+            </select>
           </label>
           <input
             type="submit"

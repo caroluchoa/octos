@@ -1,8 +1,6 @@
 import Router from 'next/router'
-import ReactMarkdown from 'react-markdown'
 
-//retorna cada câmera do banco de dados listada em nome/nºserie/fabricante
-//dentro de um container clicável, que vai para a página da camera escolhida /p/id
+//componente expondo cada câmera do banco de dados listada em nome/nºserie/fabricante e ao clicar em alguma, roteia para a página da camera escolhida /camera/id
 
 const Cameras = ({ cameras }) => {
   return (
