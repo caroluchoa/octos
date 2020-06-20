@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
-import Cameras from '../components/Post'
+import Cameras from '../components/Cameras'
 
 
 const home = props => {
