@@ -49,4 +49,6 @@ npx prisma generate
 
 Agora é possível utilizar a instância do PrismaClient para performar operações na tabela criada.
 
+## API
+
 ![](ezgif.com-crop.gif)
