@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import Router from 'next/router'
+import Path from '../components/Path'
 
 const toInputUppercase = e => {
   e.target.value = ("" + e.target.value).toUpperCase();
@@ -16,7 +17,7 @@ const Create = () => {
     e.preventDefault()
     try {
       const body = { cameraname, serialnumber, manufacturer }
-      const res = await fetch(`http://localhost:3000/api/camera`, {
+      const res = await fetch(Path + `/api/camera`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
