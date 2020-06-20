@@ -8,7 +8,7 @@ Este é um app fullstack utilizando Next.js, React (frontend) e Prisma Client. F
 Baixe o repositório:
 
 ```
-git clone https://github.com/caroluchoa/octos.git</blockquote>
+git clone https://github.com/caroluchoa/octos.git
 ```
 Instale dependências:
 
