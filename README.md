@@ -23,7 +23,6 @@ npm run dev
 
 O aplicativo está rodando agora em http://localhost:3000/
 
-![](ezgif.com-crop.gif)
 
 ### 3. Crie uma tabela no SQLite
 Crie uma tabela executando a query a seguir:
