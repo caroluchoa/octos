@@ -9,8 +9,7 @@ export default async function handle(req, res) {
     handleGET(cameraId, res)
   } else if (req.method === 'DELETE') {
     handleDELETE(cameraId, res)
-  }
-  else {
+  } else {
     throw new Error(
       `The HTTP ${req.method} method is not supported at this route.`
     )
