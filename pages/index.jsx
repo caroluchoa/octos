@@ -42,7 +42,7 @@ const home = props => {
 
 
 export const getServerSideProps = async () => {
-  const res = await fetch(Path + '/api/cameras')
+  const res = await fetch(Path + '/api/listacameras')
   const home = await res.json()
   return {
     props: { home }, //retorna um objeto props que inclui a lista de cameras que foi pega em api/feed
