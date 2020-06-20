@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch'
 import Router from 'next/router'
 import Path from '../../components/Path'
 
-// Funçao que faz uma requisição de DELETE em api/post/id e retorna a pagina Home
+// Funçao que faz uma requisição de DELETE em api/camera/id e retorna a pagina Home
 async function destroy(id) {
   const res = await fetch(Path + `/api/camera/${id}`, {
     method: 'DELETE',

@@ -17,7 +17,7 @@ export default async function handle(req, res) {
 }
 
 
-// GET /api/post/:id
+// GET /api/camera/:id
 async function handleGET(cameraId, res) {
   const cameras = await prisma.cameras.findOne({
     where: { id: Number(cameraId) }
@@ -25,7 +25,7 @@ async function handleGET(cameraId, res) {
   res.json(cameras)
 }
 
-// DELETE /api/post/:id
+// DELETE /api/camera/:id
 async function handleDELETE(cameraId, res) {
   const cameras = await prisma.cameras.delete({
     where: { id: Number(cameraId) },
