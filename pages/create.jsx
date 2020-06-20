@@ -117,7 +117,8 @@ const Create = () => {
         }
 
         input[type='submit']:hover {         
-          box-shadow: 1px 1px 3px #aaa;  
+          box-shadow: 1px 1px 3px #aaa;
+          cursor:pointer;  
         }
 
         .back:hover {          
