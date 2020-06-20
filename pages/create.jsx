@@ -3,6 +3,10 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import Router from 'next/router'
 
+const toInputUppercase = e => {
+  e.target.value = ("" + e.target.value).toUpperCase();
+};
+
 const Create = () => {
   const [cameraname, setCameraname] = useState('')
   const [serialnumber, setSerialnumber] = useState('')
@@ -33,7 +37,7 @@ const Create = () => {
           <label>
             <input //recebendo o nome da camera
               autoFocus
-              onChange={e => setCameraname(e.target.value)}
+              onChange={e => setCameraname(e.target.value)}             
               placeholder="Nome da Câmera - Ex: 'Hall de Entrada'"
               type="text"
               required
@@ -45,6 +49,7 @@ const Create = () => {
             <input placeholder="Número de Série - Apenas caracteres alfanuméricos" //recebendo o numero de serie
               type="text"
               maxLength="16"
+              onInput={toInputUppercase}
               required pattern="[A-Z0-9]+"
               value={serialnumber}
               onChange={e =>
