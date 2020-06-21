@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import Camera from '../components/Camera'
-import Path from '../components/Path'
+import { PATH } from '../constants'
 import Router from 'next/router'
 
 const home = ({cameras}) => {
@@ -40,7 +40,7 @@ const home = ({cameras}) => {
 
 //getServerSideProps para buscar os dados no lado do servidor
 export const getServerSideProps = async () => {
-  const res = await fetch(Path + '/api/cameras')
+  const res = await fetch(PATH + '/api/cameras')
   const cameras = await res.json()
   return {
     props: { cameras }, //retorna um objeto props que inclui a lista de cameras que foi pega em api/cameras

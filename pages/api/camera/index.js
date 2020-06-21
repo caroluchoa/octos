@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
+import { MANUFACTURERS } from '../../../constants'
 
 const prisma = new PrismaClient() // instancia o prismaclient
-const MANUFACTURERS = ['Secure Câmeras Inc', 'Surveillance Cams LLC', 'DigiEye Group', 'CâmeraFi Inc', 'VidMasters Inc']
 
 // Endpoint que recebe a requisição de criação de nova câmera
 export default async function handle(req, res) {

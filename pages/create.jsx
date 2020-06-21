@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import Router from 'next/router'
-import Path from '../components/Path'
+import { MANUFACTURERS } from '../constants'
 
 const toInputUppercase = e => {
   e.target.value = ("" + e.target.value).toUpperCase();
@@ -17,7 +17,7 @@ const Create = () => {
     e.preventDefault()
     try {
       const body = { cameraname, serialnumber, manufacturer }
-      const res = await fetch(Path + `/api/camera`, {
+      const res = await fetch('/api/camera', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -60,11 +60,7 @@ const Create = () => {
           <label>
             <select className="select-css" manufacturer="Fabricante" value={manufacturer} onChange={e => setManufacturer(e.target.value)} required >
               <option value="">Fabricante</option>
-              <option value="Secure Câmeras Inc">Secure Câmeras Inc</option>
-              <option value="Surveillance Cams LLC">Surveillance Cams LLC</option>
-              <option value="DigiEye Group">DigiEye Group</option>
-              <option value="CâmeraFi Inc">CâmeraFi Inc</option>
-              <option value="VidMasters Inc">VidMasters Inc</option>
+              {MANUFACTURERS.map(manufacturer => <option value={manufacturer} key={manufacturer}>{manufacturer}</option>)}
             </select>
           </label>
           <input
@@ -138,7 +134,5 @@ const Create = () => {
     </Layout>
   )
 }
-
-export const getServerSideProps = async () => ({ props: {} })
 
 export default Create;
