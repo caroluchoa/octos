@@ -22,7 +22,7 @@ const Create = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-      const data = await res.json()
+      await res.json()
       await Router.push('/')
     } catch (error) {
       console.error(error)
