@@ -13,7 +13,6 @@ async function destroy(id) {
   Router.push('/')
 }
 
-
 // Mostra a camera escolhida e dá a possibilidade de chamar a função destroy
 const Cameras = ({camera}) => {
   return (

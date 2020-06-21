@@ -5,8 +5,8 @@ import Router from 'next/router'
 import { MANUFACTURERS } from '../constants'
 
 const toInputUppercase = e => {
-  e.target.value = ("" + e.target.value).toUpperCase();
-};
+  e.target.value = ("" + e.target.value).toUpperCase()
+}
 
 const Create = () => {
   const [cameraname, setCameraname] = useState('')
