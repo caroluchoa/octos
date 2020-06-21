@@ -11,9 +11,11 @@ const home = ({cameras}) => {
         <h2>Listagem</h2>
         <p>Clique em uma câmera abaixo para editá-la.</p>
         <main>
-          {cameras.map(camera => ( // mapeia todas as cameras do db que estão no objeto props
+          {cameras.map(camera => (
+             //** Mapeia as câmeras do banco de dados que estão contidas no objeto cameras */
             <div onClick={() => Router.push('/camera/[id]', `/camera/${camera.id}`)} key={camera.id} className="cameras">
-              <Camera camera={camera} /> {/*Utiliza o import da constante Cameras para expor as câmeras na página, da maneira correta */}
+              <Camera camera={camera} /> {
+              /** Utiliza o componente Camera para expor cada câmera na página */}
             </div>
           ))}
         </main>
@@ -38,12 +40,15 @@ const home = ({cameras}) => {
   )
 }
 
-//getServerSideProps para buscar os dados no lado do servidor
+/** 
+ * getServerSideProps para buscar os dados no lado do servidor 
+ */
 export const getServerSideProps = async () => {
   const res = await fetch(PATH + '/api/cameras')
   const cameras = await res.json()
   return {
-    props: { cameras }, //retorna um objeto props que inclui a lista de cameras que foi pega em api/cameras
+    /** Retorna um objeto props que inclui os dados das cameras recebidas de "api/cameras" */
+    props: { cameras }, 
   }
 }
 

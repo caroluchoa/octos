@@ -1,4 +1,6 @@
-//componente expondo cada câmera do banco de dados listada em nome/nºserie/fabricante e ao clicar em alguma, roteia para a página da camera escolhida /camera/id
+/** 
+ * Componente para expor cada câmera por nome, serialNumber e fabricante
+ */
 
 const Camera = ({ camera }) => {
   return (

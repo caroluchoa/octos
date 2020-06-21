@@ -13,7 +13,8 @@ const Create = () => {
   const [serialNumber, setSerialNumber] = useState('')
   const [manufacturer, setManufacturer] = useState('')
 
-  const submitData = async e => { //Envia uma requisição POST para o endpoint /api/post/index
+  const submitData = async e => { 
+    /** Envia uma requisição POST para o endpoint /api/camera/index */
     e.preventDefault()
     try {
       const body = { name, serialNumber, manufacturer }
@@ -36,7 +37,7 @@ const Create = () => {
           onSubmit={submitData}>
           <h2>Adicionar Câmera</h2>
           <label>
-            <input //recebendo o nome da camera
+            <input
               autoFocus
               onChange={e => setName(e.target.value)}             
               placeholder="Nome da Câmera - Ex: 'Hall de Entrada'"
@@ -47,7 +48,7 @@ const Create = () => {
             />
           </label>
           <label>
-            <input placeholder="Número de Série - Apenas caracteres alfanuméricos" //recebendo o numero de serie
+            <input placeholder="Número de Série - Apenas caracteres alfanuméricos" 
               type="text"
               maxLength="16"
               onInput={toInputUppercase}

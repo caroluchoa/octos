@@ -10,13 +10,16 @@ export default async function handle(req, res) {
   } else if (req.method === 'DELETE') {
     handleDELETE(cameraId, res)
   } else {
+    /** Faz o tratamento de erro para METHOD NOT ALLOWED*/
     res.status(405)
     res.end()
     return
   }
 }
 
-// GET /api/camera/:id
+/** 
+ * GET /api/camera/:id 
+ */
 async function handleGET(cameraId, res) {
   const cameras = await prisma.cameras.findOne({
     where: { id: Number(cameraId) }
@@ -24,7 +27,9 @@ async function handleGET(cameraId, res) {
   res.json(cameras)
 }
 
-// DELETE /api/camera/:id
+/** 
+ * DELETE /api/camera/:id 
+ */
 async function handleDELETE(cameraId, res) {
   const cameras = await prisma.cameras.delete({
     where: { id: Number(cameraId) },

@@ -4,7 +4,9 @@ import Router from 'next/router'
 import Camera from '../../components/Camera'
 import { PATH } from '../../constants'
 
-// Funçao que faz uma requisição de DELETE em api/camera/id e retorna a pagina Home
+/**
+ * Funçao que faz uma requisição DELETE em api/camera/id e retorna a pagina Home 
+ */
 async function destroy(id) {
   const res = await fetch(`/api/camera/${id}`, {
     method: 'DELETE',
@@ -13,7 +15,9 @@ async function destroy(id) {
   Router.push('/')
 }
 
-// Mostra a camera escolhida e dá a possibilidade de chamar a função destroy
+/**
+ * Mostra a camera escolhida e dá a possibilidade de chamar a função destroy 
+ */
 const Cameras = ({camera}) => {
   return (
     <Layout>
@@ -56,7 +60,9 @@ const Cameras = ({camera}) => {
   )
 }
 
-// Busca no lado do servidor o parâmetro ID
+/**
+ * Busca no lado do servidor o parâmetro ID
+ */
 export const getServerSideProps = async (context) => {
   const res = await fetch(PATH + `/api/camera/${context.params.id}`)
   const camera = await res.json()
