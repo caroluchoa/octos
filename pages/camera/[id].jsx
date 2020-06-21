@@ -2,6 +2,7 @@ import Layout from '../../components/Layout'
 import fetch from 'isomorphic-unfetch'
 import Router from 'next/router'
 import Path from '../../components/Path'
+import Camera from '../../components/Camera'
 
 // Funçao que faz uma requisição de DELETE em api/camera/id e retorna a pagina Home
 async function destroy(id) {
@@ -14,15 +15,13 @@ async function destroy(id) {
 
 
 // Mostra a camera escolhida e dá a possibilidade de chamar a função destroy
-const Cameras = props => {
+const Cameras = ({camera}) => {
   return (
     <Layout>
       <div className="page">
-        <p><b>Nome:</b> {props.cameraname}</p>
-        <p><b>Número de série:</b>  {props.serialnumber} </p>
-        <p><b>Fabricante:</b>  {props.manufacturer} </p>
+        <Camera camera={camera}/>
         <div className="actions">
-          <button onClick={() => destroy(props.id)}>Deletar</button>
+          <button onClick={() => destroy(camera.id)}>Deletar</button>
         </div>
       </div>
 
@@ -62,8 +61,8 @@ const Cameras = props => {
 // Busca no lado do servidor o parâmetro ID
 export const getServerSideProps = async (context) => {
   const res = await fetch(Path + `/api/camera/${context.params.id}`)
-  const data = await res.json()
-  return { props: { ...data } }
+  const camera = await res.json()
+  return { props: { camera } }
 }
 
 export default Cameras
