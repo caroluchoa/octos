@@ -24,31 +24,5 @@ npm run dev
 O aplicativo está rodando agora em http://localhost:3000/
 
 
-### 3. Crie uma tabela no SQLite
-Crie uma tabela executando a query a seguir:
-
-```
-CREATE TABLE "Cameras" (
-  "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "cameraname" VARCHAR(50) NOT NULL,
-  "serialnumber" VARCHAR2(16) NOT NULL,
-  "manufacturer" VARCHAR(50) NOT NULL
-);
-```
-### 4. Atualize o database schema do Prisma
-O esquema Prisma precisa ser atualizado para o funcionamento correto da API Prisma Client. Para isso, utilize:
-
-```
-npx prisma introspect
-```
-
-Com o esquema atualizado, você deve atualizar a API Prisma Client utilizando:
-```
-npx prisma generate
-```
-
-Agora é possível utilizar a instância do PrismaClient para performar operações na tabela criada.
-
-## API
 
 ![](ezgif.com-crop.gif)
