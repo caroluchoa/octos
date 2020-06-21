@@ -6,9 +6,9 @@ const prisma = new PrismaClient() // instancia o prismaclient
 // Endpoint que recebe a requisição de criação de nova câmera
 export default async function handle(req, res) {
   if (req.method !== 'POST') {
-    throw new Error(
-      `The HTTP ${req.method} method is not supported at this route.`
-    )
+    res.status(405)
+    res.end()
+    return
   }
 
   const { cameraname = '', serialnumber = '', manufacturer = '' } = req.body
