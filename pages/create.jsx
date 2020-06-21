@@ -9,14 +9,14 @@ const toInputUppercase = e => {
 }
 
 const Create = () => {
-  const [cameraname, setCameraname] = useState('')
-  const [serialnumber, setSerialnumber] = useState('')
+  const [name, setName] = useState('')
+  const [serialNumber, setSerialNumber] = useState('')
   const [manufacturer, setManufacturer] = useState('')
 
   const submitData = async e => { //Envia uma requisição POST para o endpoint /api/post/index
     e.preventDefault()
     try {
-      const body = { cameraname, serialnumber, manufacturer }
+      const body = { name, serialNumber, manufacturer }
       const res = await fetch('/api/camera', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -38,12 +38,12 @@ const Create = () => {
           <label>
             <input //recebendo o nome da camera
               autoFocus
-              onChange={e => setCameraname(e.target.value)}             
+              onChange={e => setName(e.target.value)}             
               placeholder="Nome da Câmera - Ex: 'Hall de Entrada'"
               type="text"
               required
               maxLength="50"
-              value={cameraname}
+              value={name}
             />
           </label>
           <label>
@@ -52,9 +52,9 @@ const Create = () => {
               maxLength="16"
               onInput={toInputUppercase}
               required pattern="[A-Z0-9]+"
-              value={serialnumber}
+              value={serialNumber}
               onChange={e =>
-                setSerialnumber(e.target.value)}
+                setSerialNumber(e.target.value)}
             />
           </label>
           <label>

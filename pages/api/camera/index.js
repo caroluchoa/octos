@@ -11,9 +11,9 @@ export default async function handle(req, res) {
     return
   }
 
-  const { cameraname = '', serialnumber = '', manufacturer = '' } = req.body
+  const { name = '', serialNumber = '', manufacturer = '' } = req.body
 
-  if (cameraname.length > 50 || serialnumber.length > 16 || !serialnumber.match(/[A-Z0-9]/) || !MANUFACTURERS.includes(manufacturer)) {
+  if (name.length > 50 || serialNumber.length > 16 || !serialNumber.match(/[A-Z0-9]/) || !MANUFACTURERS.includes(manufacturer)) {
     res.status(400)
     res.end()
     return
@@ -21,8 +21,8 @@ export default async function handle(req, res) {
 
   const result = await prisma.cameras.create({
     data: {
-      cameraname: cameraname,
-      serialnumber: serialnumber,
+      name: name,
+      serialNumber: serialNumber,
       manufacturer: manufacturer
     },
   })

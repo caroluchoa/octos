@@ -3,8 +3,8 @@
 const Camera = ({ camera }) => {
   return (
     <div>
-      <p><b>Nome:</b> {camera.cameraname}</p>
-      <p><b>Número de série:</b>  {camera.serialnumber} </p>
+      <p><b>Nome:</b> {camera.name}</p>
+      <p><b>Número de série:</b>  {camera.serialNumber} </p>
       <p><b>Fabricante:</b> {camera.manufacturer}</p>
       <style jsx>{`
         div {

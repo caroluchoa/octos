@@ -8,8 +8,8 @@ datasource db {
 }
 
 model Cameras {
-  cameraname   String
   id           Int    @default(autoincrement()) @id
   manufacturer String
-  serialnumber String
+  name         String
+  serialNumber String
 }
