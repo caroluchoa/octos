@@ -13,6 +13,7 @@ git clone https://github.com/caroluchoa/octos.git
 Instale dependências:
 
 ```
+cd octos
 npm install
 ```
 
